@@ -1,0 +1,11 @@
+
+body{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background-color: crimson;
+    color: white;
+    height: 100vh;
+}
