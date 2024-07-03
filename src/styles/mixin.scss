@@ -1,0 +1,58 @@
+@mixin grid($column: 1, $gap: 1rem) {
+    display: grid;
+    grid-template-columns: repeat($column, minmax(0, 1fr));
+    gap: $gap;
+}
+
+@mixin breakpoint($size) {
+    $breakpoint: map-get($breakpoints, $size);
+    @if $breakpoint {
+        @media (max-width: $breakpoint) {
+            @content;
+        }
+    } @else {
+        @warn 'Breakpoint #{$size} is not defined';
+    }
+}
+
+@mixin responsive-grid($config) {
+    @each $breakpoint, $settings in $config {
+        @include breakpoint($breakpoint) {
+            grid-template-columns: repeat(map-get($settings, columns), minmax(0, 1fr));
+            gap: map-get($settings, gap);
+        }
+    }
+}
+
+@mixin flex($direction: row, $items: flex-start, $justify: flex-start, $gap: 1rem, $wrap: unset) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $items;
+    justify-content: $justify;
+    gap: $gap;
+    flex-wrap: $wrap;
+}
+
+@mixin heading($size: 14px, $weight: 400, $color: rgba(65, 65, 65, 1), $height: normal) {
+    font: $weight $size;
+    color: $color;
+    line-height: $height;
+}
+
+@mixin button($width: 100%, $padding: 24px, $radius: 14px, $color: #fff, $bg: linear-gradient(180deg, #0B60AE 0%, #084984 100%), $size: 20px, $weight: 500 ) {
+    width: $width;
+    padding: $padding;
+    border-radius: $radius;
+    color: $color;
+    background: $bg; 
+    font: $weight $size;
+}
+
+@mixin position($position: static, $top: unset, $left: unset, $bottom: unset, $right: unset, $inset: unset) {
+    position: $position;
+    top: $top;
+    left: $left;
+    right: $right;
+    bottom: $bottom;
+    inset: $inset;
+}
