@@ -1,9 +1,26 @@
 import React from "react";
 
 const LoaderIcon = () => {
+  const svgStyle = {
+    animation: 'bounce 1s infinite',
+  };
+
+  const keyframes = `
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  `;
+
   return (
     <>
+      <style>{keyframes}</style>
       <svg
+        style={svgStyle}
         width="97"
         height="104"
         viewBox="0 0 97 104"
