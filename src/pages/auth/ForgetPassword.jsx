@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from 'react'
 import logo from "../../assets/images/logo/logo.png";
 import loginImg from "../../assets/images/login/login-img.png";
 import formImg from "../../assets/images/login/form-img.png";
@@ -7,12 +7,7 @@ import { IoEye, IoEyeOff } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import Button from "../../components/shared/button/Button";
 
-const Login = () => {
-  const [passwordIsActive, setPasswordIsActive] = useState(true);
-
-  const handlePasswordActive = () => {
-    setPasswordIsActive(!passwordIsActive);
-  };
+const ForgetPassword = () => {
   return (
     <section className="w-full h-[100vh] grid md:grid-cols-2">
       <div className="bg-primary py-[24px] lg:py-[90px] 2xl:py-[100px] hidden md:flex flex-col items-center justify-center">
@@ -24,11 +19,10 @@ const Login = () => {
             </h2>
           </div>
           <h1 className="my-4 text-white font-semibold text-2xl md:text3xl lg:text-[50px] leading-none lg:leading-[65px] text-center md:text-left">
-            Welcome to Workforce <br />
-            Ease!
+            Forget Password!
           </h1>
           <p className="text-white text-base md:text-[30px] text-center md:text-left">
-            Register your account
+            Enter your Email Here
           </p>
         </div>
         <div className="mt-12">
@@ -40,35 +34,15 @@ const Login = () => {
         </div>
       </div>
       <div className="bg-white relative my-[24px] lg:my-[90px] 2xl:my-[100px]">
-        <div className="w-full bg-white md:shadow-form-shadow rounded-[20px] px-4 py-8 md:px-[60px] md:absolute md:left-[-5%] md:top-[50%] md:translate-x-[-5%] md:translate-y-[-50%] flex flex-col">
+        <div className="w-full bg-white md:shadow-form-shadow rounded-[20px] px-4 py-8 md:px-[60px] md:absolute md:left-[-5%] md:top-[50%] md:translate-x-[-5%] md:translate-y-[-50%] h-full flex flex-col">
           <h3 className="text-3xl text-center md:text-left md:text-[40px] text-[#414141] font-semibold">
             Welcome to WorkForce Ease!
           </h3>
           <form className="mt-6 md:mt-[50px] w-full">
             <Input label="Email Address" type="email" id="email" />
-            <div className="relative mt-4 md:mt-6">
-              <Input
-                label="Password"
-                type={passwordIsActive ? "password" : "text"}
-                id="password"
-              />
-              <div
-                className="absolute right-5 bottom-[20%] cursor-pointer"
-                onClick={handlePasswordActive}
-              >
-                {passwordIsActive ? (
-                  <IoEye style={{ color: "#a6a6a6", width: "25px" }} />
-                ) : (
-                  <IoEyeOff style={{ color: "#a6a6a6", width: "25px" }} />
-                )}
-              </div>
+            <div className="mt-4 md:mt-[50px]">
+                <Button type="submit" text="Send" bg="#e75d50" radius="14px" size="20px" weight="500" mt="50" />
             </div>
-            <div className="flex justify-end mt-4 mb-6 md:mb-[50px]">
-                <Link to='/forget-password'>
-                    <p className="text-sm text-[#676767]">Forget Password?</p>
-                </Link>
-            </div>
-            <Button type="submit" text="Login" bg="#e75d50" radius="14px" size="20px" weight="500" />
           </form>
           <div className="mt-4 md:mt-[50px] flex justify-end items-end grow">
             <img src={formImg} alt="img" className="max-w-[100%] w-[200px]" />
@@ -76,7 +50,7 @@ const Login = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Login;
+export default ForgetPassword
