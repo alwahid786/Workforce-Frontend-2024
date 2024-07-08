@@ -16,33 +16,33 @@ export const pages = [
         subPages: [
             {
                 title: 'Home',
-                link: '/home'
+                link: '/user/home'
             },
             {
                 title: 'Active Devices',
-                link: '/active-devices'
+                link: '/user/active-devices'
             },
             {
                 title: 'Workforce',
-                link: '/workforce'
+                link: '/user/workforce'
             },
             {
                 title: 'Device Data',
-                link: '/device-data'
+                link: '/user/device-data'
             },
             {
                 title: 'Vehicles Data',
-                link: '/vehicles-data'
+                link: '/user/vehicles-data'
             },
             {
                 title: 'SOS',
-                link: '/sos'
+                link: '/user/sos'
             },
         ]
     },
     {
         title: 'Projects',
-        link: '/projects',
+        link: '/user/projects',
         icon: <ProjectsIcon />,
     },
     {
@@ -51,37 +51,37 @@ export const pages = [
         subPages: [
             {
                 title: 'Realtime',
-                link: '/realtime'
+                link: '/user/realtime'
             },
             {
                 title: 'Geofence',
-                link: '/geofence'
+                link: '/user/geofence'
             },
         ]
     },
     {
         title: 'Vehicles',
-        link: '/vehicles',
+        link: '/user/vehicles',
         icon: <VehiclesIcon />,
     },  
     {
         title: 'Users',
-        link: '/users',
+        link: '/user/users',
         icon: <UsersIcon />,
     },  
     {
         title: 'Sensors',
-        link: '/sensors',
+        link: '/user/sensors',
         icon: <SensorsIcon />,
     },  
     {
         title: 'Violations',
-        link: '/violations',
+        link: '/user/violations',
         icon: <ViolationsIcon />,
     },  
     {
         title: 'Score Card',
-        link: '/score-card',
+        link: '/user/score-card',
         icon: <ScoreCardIcon />,
     },
     {
@@ -90,11 +90,11 @@ export const pages = [
         subPages: [
             {
                 title: 'Plans',
-                link: '/plans'
+                link: '/user/plans'
             },
             {
                 title: 'Transactions',
-                link: '/transactions'
+                link: '/user/transactions'
             },
         ]
     }, 
@@ -104,7 +104,7 @@ export const pages = [
         subPages: [
             {
                 title: 'Update Profile',
-                link: '/update-profile'
+                link: '/user/update-profile'
             },
         ]
     },

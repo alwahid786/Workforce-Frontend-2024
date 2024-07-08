@@ -9,6 +9,10 @@
     font-family: "Poppins", sans-serif !important;
 }
 
+.user-dashboard::-webkit-scrollbar {
+    width: 0;
+}
+
 .user-dashboard::before {
     content: '';
     background: url('assets/images/user/user-dashboard.png') no-repeat center/cover;
@@ -18,4 +22,14 @@
     top: 0;
     left: 0;
     z-index: -1;
+}
+
+.nav::-webkit-scrollbar {
+    width: 0;
+}
+
+@media (max-width:1279px) {
+    .user-dashboard::before {
+        height: 115px;
+    }
 }
