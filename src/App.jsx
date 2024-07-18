@@ -7,6 +7,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import GlobalLoader from "./components/layout/GlobalLoader";
+
 const User = lazy(() => import("./pages/user"));
 const Login = lazy(() => import("./pages/auth/Login"));
 const ForgetPassword = lazy(() => import("./pages/auth/ForgetPassword"));
@@ -23,9 +24,7 @@ const DeviceData = lazy(() =>
 const VehiclesData = lazy(() =>
   import("./pages/user/dashboard/vehiclesData/VehiclesData")
 );
-const Sos = lazy(() =>
-  import("./pages/user/dashboard/sos/Sos")
-);
+const Sos = lazy(() => import("./pages/user/dashboard/sos/Sos"));
 const Projects = lazy(() => import("./pages/user/projects/Projects"));
 const Realtime = lazy(() => import("./pages/user/maps/realtime/Realtime"));
 const Geofence = lazy(() => import("./pages/user/maps/geofence/Geofence"));
@@ -45,170 +44,32 @@ function App() {
 
   return (
     <Router>
-      <Routes>
-        <Route
-          path="/login"
-          element={
-            <Suspense fallback={loader}>
-              <Login />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/forget-password"
-          element={
-            <Suspense fallback={loader}>
-              <ForgetPassword />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/user"
-          element={
-            <Suspense fallback={loader}>
-              <User />
-            </Suspense>
-          }
-        >
-          <Route index element={<Navigate replace to="home" />} />
-          <Route
-            path="home"
-            element={
-              <Suspense fallback={loader}>
-                <Home />
-              </Suspense>
-            }
-          />
-          <Route
-            path="active-devices"
-            element={
-              <Suspense fallback={loader}>
-                <ActiveDevices></ActiveDevices>
-              </Suspense>
-            }
-          />
-          <Route
-            path="workforce"
-            element={
-              <Suspense fallback={loader}>
-                <Workforce></Workforce>
-              </Suspense>
-            }
-          />
-          <Route
-            path="device-data"
-            element={
-              <Suspense fallback={loader}>
-                <DeviceData></DeviceData>
-              </Suspense>
-            }
-          />
-          <Route
-            path="vehicles-data"
-            element={
-              <Suspense fallback={loader}>
-                <VehiclesData></VehiclesData>
-              </Suspense>
-            }
-          />
-          <Route
-            path="projects"
-            element={
-              <Suspense fallback={loader}>
-                <Projects></Projects>
-              </Suspense>
-            }
-          />
-          <Route
-            path="realtime"
-            element={
-              <Suspense fallback={loader}>
-                <Realtime></Realtime>
-              </Suspense>
-            }
-          />
-          <Route
-            path="geofence"
-            element={
-              <Suspense fallback={loader}>
-                <Geofence></Geofence>
-              </Suspense>
-            }
-          />
-          <Route
-            path="vehicles"
-            element={
-              <Suspense fallback={loader}>
-                <Vehicles></Vehicles>
-              </Suspense>
-            }
-          />
-          <Route
-            path="users"
-            element={
-              <Suspense fallback={loader}>
-                <Users></Users>
-              </Suspense>
-            }
-          />
-          <Route
-            path="sensors"
-            element={
-              <Suspense fallback={loader}>
-                <Sensors></Sensors>
-              </Suspense>
-            }
-          />
-          <Route
-            path="violations"
-            element={
-              <Suspense fallback={loader}>
-                <Violations></Violations>
-              </Suspense>
-            }
-          />
-          <Route
-            path="score-card"
-            element={
-              <Suspense fallback={loader}>
-                <ScoreCard></ScoreCard>
-              </Suspense>
-            }
-          />
-          <Route
-            path="plans"
-            element={
-              <Suspense fallback={loader}>
-                <Plans></Plans>
-              </Suspense>
-            }
-          />
-          <Route
-            path="transactions"
-            element={
-              <Suspense fallback={loader}>
-                <Transactions></Transactions>
-              </Suspense>
-            }
-          />
-          <Route
-            path="update-profile"
-            element={
-              <Suspense fallback={loader}>
-                <UpdateProfile></UpdateProfile>
-              </Suspense>
-            }
-          />
-          <Route
-            path="Sos"
-            element={
-              <Suspense fallback={loader}>
-                <Sos></Sos>
-              </Suspense>
-            }
-          />
-        </Route>
-      </Routes>
+      <Suspense fallback={loader}>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/forget-password" element={<ForgetPassword />} />
+          <Route path="/user" element={<User />}>
+            <Route index element={<Navigate replace to="home" />} />
+            <Route path="home" element={<Home />} />
+            <Route path="active-devices" element={<ActiveDevices />} />
+            <Route path="workforce" element={<Workforce />} />
+            <Route path="device-data" element={<DeviceData />} />
+            <Route path="vehicles-data" element={<VehiclesData />} />
+            <Route path="projects" element={<Projects />} />
+            <Route path="realtime" element={<Realtime />} />
+            <Route path="geofence" element={<Geofence />} />
+            <Route path="vehicles" element={<Vehicles />} />
+            <Route path="users" element={<Users />} />
+            <Route path="sensors" element={<Sensors />} />
+            <Route path="violations" element={<Violations />} />
+            <Route path="score-card" element={<ScoreCard />} />
+            <Route path="plans" element={<Plans />} />
+            <Route path="transactions" element={<Transactions />} />
+            <Route path="update-profile" element={<UpdateProfile />} />
+            <Route path="Sos" element={<Sos />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </Router>
   );
 }

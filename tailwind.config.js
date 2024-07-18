@@ -9,6 +9,7 @@ export default {
       },
       boxShadow: {
         'form-shadow': '0px 4px 94px 0px rgba(0, 0, 0, 0.19)',
+        'card-shadow': '0px 12px 23px 0px rgba(62, 73, 84, 0.04)'
       },
     },
   },
