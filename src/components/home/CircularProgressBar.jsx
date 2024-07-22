@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { getColorByPercentage } from '../../utils';
 
-const CircularProgressBar = ({ percentage, color }) => {
+const CircularProgressBar = ({ percentage }) => {
+  const [color, setColor] = useState('')
   const radius = 50;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (percentage / 100) * circumference;
+
+  // let color = getColorByPercentage(percentage)
+
+  useEffect(() => {
+    if(percentage){
+      let color = getColorByPercentage(percentage)
+      setColor(color)
+    }
+  }, [percentage])
 
   return (
     <div className="relative flex items-center justify-center w-[95px] h-[95px]">

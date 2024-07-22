@@ -24,7 +24,7 @@
     z-index: -1;
 }
 
-.nav::-webkit-scrollbar {
+.nav::-webkit-scrollbar, .no-scrollbar::-webkit-scrollbar {
     width: 0;
 }
 
