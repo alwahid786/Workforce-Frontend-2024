@@ -1,18 +1,44 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import logo from "../../assets/images/logo/logo.png";
 import loginImg from "../../assets/images/login/login-img.png";
 import formImg from "../../assets/images/login/form-img.png";
 import Input from "../../components/auth/Input";
 import { IoEye, IoEyeOff } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../components/shared/button/Button";
+import { useLoginMutation } from "../../redux/api/authApi";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [passwordIsActive, setPasswordIsActive] = useState(true);
+  const [login] = useLoginMutation();
+  const navigate = useNavigate()
 
   const handlePasswordActive = () => {
     setPasswordIsActive(!passwordIsActive);
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData);
+      const res = await login(data);
+
+      if (res?.data?.success === true) {
+
+        toast.success(res?.data?.message);
+
+        setTimeout(() => {navigate("/user/home")}, 2000)
+      }
+    } catch (error) {
+
+      toast.error(error?.data?.message);
+
+    }
+  };
+
   return (
     <section className="w-full h-[100vh] grid md:grid-cols-2">
       <div className="bg-primary py-[24px] lg:py-[90px] 2xl:py-[100px] hidden md:flex flex-col items-center justify-center">
@@ -44,13 +70,21 @@ const Login = () => {
           <h3 className="text-3xl text-center md:text-left md:text-[40px] text-[#414141] font-semibold">
             Welcome to WorkForce Ease!
           </h3>
-          <form className="mt-6 md:mt-[50px] w-full">
-            <Input label="Email Address" type="email" id="email" />
+          <form className="mt-6 md:mt-[50px] w-full" onSubmit={handleSubmit}>
+            <Input
+              label="Email Address"
+              type="email"
+              id="email"
+              name={"email"}
+              placeholder={"Enter Email Address"}
+            />
             <div className="relative mt-4 md:mt-6">
               <Input
                 label="Password"
                 type={passwordIsActive ? "password" : "text"}
                 id="password"
+                name={"password"}
+                placeholder={"Enter Password"}
               />
               <div
                 className="absolute right-5 bottom-[20%] cursor-pointer"
@@ -64,11 +98,18 @@ const Login = () => {
               </div>
             </div>
             <div className="flex justify-end mt-4 mb-6 md:mb-[50px]">
-                <Link to='/forget-password'>
-                    <p className="text-sm text-[#676767]">Forget Password?</p>
-                </Link>
+              <Link to="/forget-password">
+                <p className="text-sm text-[#676767]">Forget Password?</p>
+              </Link>
             </div>
-            <Button type="submit" text="Login" bg="#e75d50" radius="14px" size="20px" weight="500" />
+            <Button
+              type="submit"
+              text="Login"
+              bg="#e75d50"
+              radius="14px"
+              size="20px"
+              weight="500"
+            />
           </form>
           <div className="mt-4 md:mt-[50px] flex justify-end items-end grow">
             <img src={formImg} alt="img" className="max-w-[100%] w-[200px]" />
