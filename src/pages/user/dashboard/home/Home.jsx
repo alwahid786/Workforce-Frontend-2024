@@ -5,17 +5,29 @@ import projectGrad from "../../../../assets/images/home/project-grad.png";
 import placementGrad from "../../../../assets/images/home/placement-grad.png";
 import averagedaysGrad from "../../../../assets/images/home/averagedays-grad.png";
 import ProjectCard from "../../../../components/home/ProjectCard";
-import { projects } from "../../../../data/data";
-import PieChartComponent from "../../../../components/charts/pieChart/PieChartComponentPieChart";
+import {
+  barLineData,
+  deviceStatusData,
+  nfcTagsData,
+  nfcTagsTypeData,
+  projects,
+  smartTrackerData,
+  vehiclesPieChartData,
+} from "../../../../data/data";
+import PieChartComponent from "../../../../components/charts/pieChart/PieChartComponent";
 import MapComponent from "../../../../components/map/MapComponent";
 import MapSensorsData from "../../../../components/home/MapSensorsData";
 import BarChartComponent from "../../../../components/charts/barChart/BarChartComponent";
 import DonutChart from "../../../../components/charts/donutChart/DonutChart";
+import TruckIcon from "../../../../assets/svgs/home/TruckIcon";
+import CircularDonutChart from "../../../../components/charts/donutChart/CircularDonutChart";
+import Title from "../../../../components/shared/title/Title";
+
 
 const Home = () => {
   return (
     <>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 2xl:gap-6 mt-12 lg:mt-[30px]">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 2xl:gap-6 mt-12 lg:mt-[30px] mb-4 md:mb-[40px]">
         <HomeCard
           title="WORKFORCE HIRE"
           value="60"
@@ -41,12 +53,8 @@ const Home = () => {
           bgImg={averagedaysGrad}
         />
       </div>
-      <h4 className="mt-4 md:mt-[40px] text[#111111] text-lg md:text-[24px] font-semibold">
-        Todays Tasks
-      </h4>
-      {/* diver */}
-      <div className="w-[104px] h-[4px] bg-[#111111] rounded-xl mt-1"></div>
-      <div className="grid md:grid-cols-2 gap-4 md:gap-6 mt-4 md:mt-[40px]">
+      <Title title='Todays Tasks' />
+      <div className="grid md:grid-cols-2 gap-4 md:gap-6 my-4 md:my-[40px]">
         <div className="bg-white rounded-[12px] p-4 lg:p-6 xl:p-8 h-[450px] xl:h-[600px] overflow-y-scroll no-scrollbar drop-shadow-xl">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-base text-[rgba(0, 0, 0, 0.6)] font-semibold">
@@ -69,43 +77,57 @@ const Home = () => {
           <h3 className="text-[#000] text-lg md:text-[24px] font-semibold">
             Vehicles
           </h3>
-          <PieChartComponent />
+          <PieChartComponent
+            layout="layout-one"
+            data={vehiclesPieChartData}
+            centerIcon={<TruckIcon />}
+            innerRadius={90}
+            outerRadius={120}
+          />
         </div>
       </div>
-      <h4 className="mt-4 md:mt-[40px] text[#111111] text-lg md:text-[24px] font-semibold">
-        Sensor
-      </h4>
-      {/* diver */}
-      <div className="w-[104px] h-[4px] bg-[#111111] rounded-xl mt-1"></div>
+      <Title title='Sensor' />
       {/* map section */}
-      <div className="grid md:grid-cols-12 gap-4 mt-4 md:mt-[40px] bg-white p-4 md:p-6 rounded-[12px] drop-shadow-xl">
+      <div className="grid md:grid-cols-12 gap-4 my-4 md:my-[40px] bg-white p-4 md:p-6 rounded-[12px] drop-shadow-xl">
         <div className="col-span-12 md:col-span-9 drop-shadow-md rounded-lg">
-          <MapComponent position={[51.505, - 0.09]} />
+          <MapComponent position={[51.505, -0.09]} />
         </div>
         <div className="col-span-12 md:col-span-3 drop-shadow-md">
           <MapSensorsData />
         </div>
       </div>
       {/* bar chart */}
-      <h4 className="mt-4 md:mt-[40px] text[#111111] text-lg md:text-[24px] font-semibold">
-        Workers Hire
-      </h4>
-      {/* diver */}
-      <div className="w-[104px] h-[4px] bg-[#111111] rounded-xl mt-1"></div>
+      <Title title='Workers Hire' />
       <div className="bg-white p-4 md:p-6 rounded-[12px] mt-4 md:mt-[40px] drop-shadow-xl">
-        <BarChartComponent />
+        <BarChartComponent data={barLineData } />
       </div>
       {/* Charts */}
       <div className="grid md:grid-cols-2 lg:grid-cols-4 mt-4 md:mt-8 gap-4">
-        <div className="p-4 md:p-5 bg-white rounded-[15px] drop-shadow-md">
-          <DonutChart />
-        </div>
-        <div className="p-4 md:p-5 bg-white rounded-[15px] drop-shadow-md">2</div>
-        <div className="p-4 md:p-5 bg-white rounded-[15px] drop-shadow-md">3</div>
-        <div className="p-4 md:p-5 bg-white rounded-[15px] drop-shadow-md">4</div>
+        <ChartColumn title="Smart Tracker" subTitle="Session by Device">
+          <DonutChart data={smartTrackerData} />
+        </ChartColumn>
+        <ChartColumn title="Device Status" subTitle="Session by Device">
+          <PieChartComponent data={deviceStatusData} innerRadius={55} outerRadius={85} />
+        </ChartColumn>
+        <ChartColumn title="NFC Tags" subTitle="Session by Device">
+          <CircularDonutChart data={nfcTagsData} />
+        </ChartColumn>
+        <ChartColumn title="NFC Tags Type" subTitle="Session by Device">
+          <PieChartComponent data={nfcTagsTypeData} innerRadius={0} outerRadius={84} paddingAngle={0} />
+        </ChartColumn>
       </div>
     </>
   );
 };
 
 export default Home;
+
+const ChartColumn = ({ title, subTitle, children }) => {
+  return (
+    <div className="p-4 md:p-5 bg-white rounded-[15px] drop-shadow-md">
+      <h3 className="text-base md:text-[20px] font-semibold">{title}</h3>
+      <p className="text-base font-light text-[#717579]">{subTitle}</p>
+      <div className="mt-6 flex flex-col items-center justify-center">{children}</div>
+    </div>
+  );
+};

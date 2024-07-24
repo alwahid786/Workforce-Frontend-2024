@@ -101,3 +101,74 @@ export const projects = [
     percentage: "14",
   },
 ];
+
+export const vehiclesPieChartData = [
+  {
+    name: "In Use",
+    value: 65,
+    color: "rgba(225, 52, 30, 1)",
+  },
+  { name: "Not In Use", value: 55, color: "rgba(43, 193, 85, 1)" },
+  { name: "Total Vehicles", value: 250, color: "rgba(64, 123, 255, 1)" },
+];
+
+export const deviceStatusData = [
+  {
+    name: "Assigned",
+    value: 24,
+    color: "rgba(255, 210, 0, 1)",
+  },
+  { name: "Unassigned", value:76, color: "rgba(52, 193, 253, 1)" },
+]
+export const nfcTagsData = [
+  {
+    name: "Assigned",
+    value: 24,
+    color: "rgba(30, 203, 225, 1)",
+  },
+  { name: "Unassigned", value:76, color: "rgba(225, 52, 30, 1)" },
+]
+export const nfcTagsTypeData = [
+  {
+    name: "Assigned",
+    value: 30,
+    color: "rgba(0, 227, 150, 1)",
+  },
+  { name: "Unassigned", value:70, color: "rgba(255, 173, 51, 1)" },
+]
+export const smartTrackerData = [
+  {
+    name: "Assigned",
+    value: 56,
+    color: "rgba(52, 75, 253, 1) ",
+  },
+  { name: "Unassigned", value:44, color: "rgba(255, 149, 90, 1)" },
+]
+export const activeDeviceNfcData = [
+  {
+    name: "Assigned",
+    value: 56,
+    color: "rgba(247, 111, 44, 1)",
+  },
+  { name: "Unassigned", value:44, color: "rgba(8, 74, 135, 1)" },
+]
+
+export const barLineData = [
+  { name: "Dar", uv: 3428 },
+  { name: "Elegant", uv: 7120 },
+  { name: "Enjaz", uv: 6650 },
+  { name: "ESOM", uv: 5985 },
+  { name: "FHM", uv: 2132 },
+  { name: "FMCO", uv: 4300 },
+  { name: "FSCL", uv: 6480 },
+  { name: "GACS", uv: 5640 },
+  { name: "GKI", uv: 3482 },
+  { name: "HMA", uv: 2940 },
+  { name: "ICAD", uv: 5200 },
+  { name: "IFMI", uv: 4000 },
+  { name: "KCC", uv: 2800 },
+  { name: "MNO", uv: 4000 },
+  { name: "HCF", uv: 2800 },
+  { name: "KFT", uv: 1800 },
+  { name: "POLM", uv: 6500 },
+];

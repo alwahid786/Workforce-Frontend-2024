@@ -11,31 +11,11 @@ import {
   LabelList,
 } from "recharts";
 
-const data = [
-  { name: "Dar", uv: 3428 },
-  { name: "Elegant", uv: 7120 },
-  { name: "Enjaz", uv: 6650 },
-  { name: "ESOM", uv: 5985 },
-  { name: "FHM", uv: 2132 },
-  { name: "FMCO", uv: 4300 },
-  { name: "FSCL", uv: 6480 },
-  { name: "GACS", uv: 5640 },
-  { name: "GKI", uv: 3482 },
-  { name: "HMA", uv: 2940 },
-  { name: "ICAD", uv: 5200 },
-  { name: "IFMI", uv: 4000 },
-  { name: "KCC", uv: 2800 },
-  { name: "MNO", uv: 4000 },
-  { name: "HCF", uv: 2800 },
-  { name: "KFT", uv: 1800 },
-  { name: "POLM", uv: 6500 },
-];
-
-const BarChartComponent = () => {
+const BarChartComponent = ({data}) => {
   return (
     <ResponsiveContainer width="100%" height={400}>
       <BarChart
-        // width={100}
+        width={1500}
         height={400}
         data={data}
         margin={{

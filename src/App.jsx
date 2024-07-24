@@ -46,6 +46,7 @@ function App() {
     <Router>
       <Suspense fallback={loader}>
         <Routes>
+          <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/user" element={<User />}>
