@@ -103,7 +103,7 @@ const Home = () => {
       </div>
       {/* Charts */}
       <div className="grid md:grid-cols-2 lg:grid-cols-4 mt-4 md:mt-8 gap-4">
-        <ChartColumn title="Smart Tracker" subTitle="Session by Device">
+        <ChartColumn title="Smart Tracker" subTitle="Session by Device" height='220px'>
           <DonutChart data={smartTrackerData} />
         </ChartColumn>
         <ChartColumn title="Device Status" subTitle="Session by Device">
@@ -122,12 +122,12 @@ const Home = () => {
 
 export default Home;
 
-const ChartColumn = ({ title, subTitle, children }) => {
+const ChartColumn = ({ title, subTitle, children, height }) => {
   return (
     <div className="p-4 md:p-5 bg-white rounded-[15px] drop-shadow-md">
       <h3 className="text-base md:text-[20px] font-semibold">{title}</h3>
       <p className="text-base font-light text-[#717579]">{subTitle}</p>
-      <div className="mt-6 flex flex-col items-center justify-center">{children}</div>
+      <div className={`mt-6 flex flex-col items-center justify-center h-[${height}]`}>{children}</div>
     </div>
   );
 };

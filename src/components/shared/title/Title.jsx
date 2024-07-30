@@ -3,7 +3,7 @@ import React from 'react'
 const Title = ({title}) => {
   return (
     <>
-    <h4 className="text[#111111] text-lg md:text-[24px] font-semibold">
+    <h4 className="text[#111111] text-lg 2xl:text-[20px] font-semibold">
         {title}
       </h4>
       {/* diver */}

@@ -11,7 +11,7 @@ import {
   LabelList,
 } from "recharts";
 
-const BarChartComponent = ({data}) => {
+const BarChartComponent = ({data, colors}) => {
   return (
     <ResponsiveContainer width="100%" height={400}>
       <BarChart
@@ -26,10 +26,19 @@ const BarChartComponent = ({data}) => {
         }}
       >
         <defs>
-          <linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#06325B" />
-            <stop offset="100%" stopColor="#0C6AC1" />
-          </linearGradient>
+          {colors? (
+            colors.map((color, index) => (
+              <linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0" key={index}>
+              <stop offset="0%" stopColor={color.start} />
+              <stop offset="100%" stopColor={color.end} />
+            </linearGradient>
+            ))
+          ) : (
+            <linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#06325B" />
+              <stop offset="100%" stopColor="#0C6AC1" />
+            </linearGradient>
+          )}
         </defs>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />

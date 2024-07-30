@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 
 const Main = () => {
   return (
-    <div className='py-4 md:py-6 mt-6 xl:mt-0'>
+    <div className='pt-4 md:pt-6 mt-6 xl:mt-0'>
         <Outlet />
     </div>
   )

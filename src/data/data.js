@@ -118,40 +118,86 @@ export const deviceStatusData = [
     value: 24,
     color: "rgba(255, 210, 0, 1)",
   },
-  { name: "Unassigned", value:76, color: "rgba(52, 193, 253, 1)" },
-]
+  { name: "Unassigned", value: 76, color: "rgba(52, 193, 253, 1)" },
+];
+export const batteryLevelData = [
+  {
+    name: "High",
+    value: 50,
+    color: "rgba(176, 4, 138, 1)",
+  },
+  { name: "Medium", value: 76, color: "rgba(231, 93, 80, 1)" },
+  { name: "Low", value: 26, color: "rgba(241, 130, 38, 1)" },
+];
 export const nfcTagsData = [
   {
     name: "Assigned",
     value: 24,
     color: "rgba(30, 203, 225, 1)",
   },
-  { name: "Unassigned", value:76, color: "rgba(225, 52, 30, 1)" },
-]
+  { name: "Unassigned", value: 76, color: "rgba(225, 52, 30, 1)" },
+];
 export const nfcTagsTypeData = [
   {
     name: "Assigned",
     value: 30,
     color: "rgba(0, 227, 150, 1)",
   },
-  { name: "Unassigned", value:70, color: "rgba(255, 173, 51, 1)" },
-]
+  { name: "Unassigned", value: 70, color: "rgba(255, 173, 51, 1)" },
+];
+export const activeNfcTagsTypeData = [
+  {
+    name: "Workforces",
+    value: 45,
+    color: "rgba(255, 210, 0, 1)",
+  },
+  { name: "Vehicles", value: 15, color: "rgba(246, 141, 43, 1)" },
+  { name: "Crews", value: 15, color: "rgba(52, 75, 253, 1)" },
+  { name: "Vessels", value: 15, color: "rgba(244, 167, 157, 1)" },
+];
 export const smartTrackerData = [
   {
     name: "Assigned",
     value: 56,
     color: "rgba(52, 75, 253, 1) ",
   },
-  { name: "Unassigned", value:44, color: "rgba(255, 149, 90, 1)" },
-]
+  { name: "Unassigned", value: 44, color: "rgba(255, 149, 90, 1)" },
+];
+export const gatewayStatsData = [
+  {
+    name: "Connected",
+    value: 76,
+    color: "rgba(244, 195, 66, 1)",
+  },
+  { name: "Not Connected>H1", value: 44, color: "rgba(4, 176, 66, 1)" },
+];
 export const activeDeviceNfcData = [
   {
     name: "Assigned",
     value: 56,
     color: "rgba(247, 111, 44, 1)",
   },
-  { name: "Unassigned", value:44, color: "rgba(8, 74, 135, 1)" },
-]
+  { name: "Unassigned", value: 44, color: "rgba(8, 74, 135, 1)" },
+];
+export const activeDeviceData = [
+  {
+    name: "Connected",
+    value: 50,
+    color: "rgba(80, 212, 80, 1)",
+  },
+  { name: "Disconnected", value: 26, color: "rgba(237, 91, 91, 1)" },
+  { name: "Unknown", value: 24, color: "rgba(0, 225, 240, 1)" },
+];
+export const trackerData = [
+  {
+    name: "Connected",
+    value: 26,
+    color: "rgba(11, 90, 163, 1)",
+  },
+  { name: "Not Connected>H1", value: 26, color: "rgba(255, 249, 115, 1)" },
+  { name: "Not Connected>15 days", value: 24, color: "rgba(241, 130, 38, 1)" },
+  { name: "Not Connected>15 days", value: 24, color: "rgba(0, 225, 240, 1)" },
+];
 
 export const barLineData = [
   { name: "Dar", uv: 3428 },
@@ -171,4 +217,52 @@ export const barLineData = [
   { name: "HCF", uv: 2800 },
   { name: "KFT", uv: 1800 },
   { name: "POLM", uv: 6500 },
+];
+
+export const workforces = [
+  {
+    name: 'Engineers',
+    count: 12,
+  },
+  {
+    name: 'Permanent',
+    count: 3,
+  },
+  {
+    name: 'Driver',
+    count: 4,
+  },
+  {
+    name: 'Crew',
+    count: 6,
+  },
+]
+export const workforcesNationality = [
+  {
+    name: 'Saudi Arabia',
+    count: 32,
+  },
+  {
+    name: 'Sudan',
+    count: 9,
+  },
+  {
+    name: 'Syrian Arab Republic',
+    count: 4,
+  },
+  {
+    name: 'Tunsia',
+    count: 1,
+  },
+]
+
+export const workforcesZone = [
+  {
+    name: "Zone A",
+    value: 20,
+    color: "rgba(238, 144, 44, 1)",
+  },
+  { name: "Zone B", value: 20, color: "rgba(244, 161, 175, 1)" },
+  { name: "Zone C", value: 25, color: "rgba(49, 56, 115, 1)" },
+  { name: "Zone D", value: 35, color: "rgba(66, 140, 142, 1)" },
 ];

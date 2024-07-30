@@ -5,9 +5,10 @@ const PieChartComponent = ({
   data,
   layout,
   centerIcon,
-  innerRadius,
-  outerRadius,
-  paddingAngle = 4
+  innerRadius = 55,
+  outerRadius = 85,
+  paddingAngle = 4,
+  cornerRadius = 7
 }) => {
   return (
     <>
@@ -21,7 +22,7 @@ const PieChartComponent = ({
                 cy="50%"
                 innerRadius={innerRadius}
                 outerRadius={outerRadius}
-                cornerRadius={7}
+                cornerRadius={cornerRadius}
                 dataKey="value"
                 startAngle={90}
                 endAngle={-270}
@@ -56,7 +57,7 @@ const PieChartComponent = ({
               </div>
             ))
           ) : (
-            <div className="flex items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center justify-between gap-3">
               {data.map((entry, i) => (
                 <div className="flex items-center gap-1" key={i}>
                   <div
@@ -65,7 +66,7 @@ const PieChartComponent = ({
                   ></div>
                   <p className="text-sm text-[#030229]">
                     {entry.name}{" "}
-                    <span className="text-base font-semibold">
+                    <span className="text-sm font-semibold">
                       {entry.value}%
                     </span>
                   </p>

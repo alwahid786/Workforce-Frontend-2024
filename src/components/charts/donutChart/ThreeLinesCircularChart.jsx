@@ -1,17 +1,20 @@
 import React from "react";
 
-const CircularDonutChart = ({ data }) => {
+const ThreeLinesCircularChart = ({ data }) => {
     const radius = 50;
     const circumference = 2 * Math.PI * radius;
   
-    const assignedData = data.find(entry => entry.name === "Assigned");
-    const unassignedData = data.find(entry => entry.name === "Unassigned");
+    const highData = data.find(entry => entry.name === "High");
+    const mediumData = data.find(entry => entry.name === "Medium");
+    const lowData = data.find(entry => entry.name === "Low");
   
-    const assignedPercentage = assignedData ? assignedData.value : 0;
-    const unassignedPercentage = unassignedData ? unassignedData.value : 0;
+    const highPercentage = highData ? highData.value : 0;
+    const mediumPercentage = mediumData ? mediumData.value : 0;
+    const lowPercentage = lowData ? lowData.value : 0;
   
-    const assignedOffset = circumference - (assignedPercentage / 100) * circumference;
-    const unassignedOffset = circumference - (unassignedPercentage / 100) * circumference;
+    const highOffset = circumference - (highPercentage / 100) * circumference;
+    const mediumOffset = circumference - (mediumPercentage / 100) * circumference;
+    const lowOffset = circumference - (lowPercentage / 100) * circumference;
   
     return (
       <>
@@ -33,9 +36,9 @@ const CircularDonutChart = ({ data }) => {
               className="text-green-500"
               strokeWidth="6"
               strokeDasharray={circumference}
-              strokeDashoffset={assignedOffset}
+              strokeDashoffset={highOffset}
               strokeLinecap="round"
-              stroke={assignedData.color}
+              stroke={highData.color}
               fill="transparent"
               r="50"
               cx="60"
@@ -59,9 +62,35 @@ const CircularDonutChart = ({ data }) => {
               className="text-green-800"
               strokeWidth="7"
               strokeDasharray={circumference}
-              strokeDashoffset={unassignedOffset}
+              strokeDashoffset={mediumOffset}
               strokeLinecap="round"
-              stroke={unassignedData.color}
+              stroke={mediumData.color}
+              fill="transparent"
+              r="50"
+              cx="60"
+              cy="60"
+            />
+          </svg>
+          <svg
+            viewBox="0 0 120 120"
+            className="transform rotate-[-90deg] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[140px] h-[140px]"
+          >
+            <circle
+              className="text-[#e9ebf3]"
+              strokeWidth="7"
+              stroke="currentColor"
+              fill="transparent"
+              r="50"
+              cx="60"
+              cy="60"
+            />
+            <circle
+              className="text-green-800"
+              strokeWidth="7"
+              strokeDasharray={circumference}
+              strokeDashoffset={lowOffset}
+              strokeLinecap="round"
+              stroke={lowData.color}
               fill="transparent"
               r="50"
               cx="60"
@@ -88,4 +117,4 @@ const CircularDonutChart = ({ data }) => {
   };
   
 
-export default CircularDonutChart;
+export default ThreeLinesCircularChart;
