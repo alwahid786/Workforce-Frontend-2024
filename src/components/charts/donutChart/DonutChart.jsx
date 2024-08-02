@@ -25,7 +25,7 @@ const DonutChart = ({ data }) => {
   });
 
   return (
-    <ResponsiveContainer width="100%">
+    <ResponsiveContainer width="100%" height={220}>
       <PieChart>
         {categories.map((category, index) => {
           const categoryData = data.filter(entry => entry.name === category);
