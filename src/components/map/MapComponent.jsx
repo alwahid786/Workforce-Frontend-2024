@@ -6,7 +6,7 @@ const MapComponent = ({ position }) => {
   return (
     <MapContainer
       center={position}
-      zoom={13}
+      zoom={5}
       scrollWheelZoom={false}
       style={{ width: "100%", height: "480px", zIndex: '1', borderRadius: '10px'}}
       attributionControl={false}

@@ -24,10 +24,9 @@
     z-index: -1;
 }
 
-.nav::-webkit-scrollbar, .no-scrollbar::-webkit-scrollbar {
+.nav::-webkit-scrollbar, .no-scrollbar::-webkit-scrollbar, .sc-eEPDDI::-webkit-scrollbar {
     width: 0;
 }
-
 @media (max-width:1279px) {
     .user-dashboard::before {
         height: 115px;

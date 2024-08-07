@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { getColorByPercentage } from '../../utils';
 
-const CircularProgressBar = ({ percentage }) => {
+const CircularProgressBar = ({ percentage, width, height, percentageSize }) => {
   const [color, setColor] = useState('')
   const radius = 50;
   const circumference = 2 * Math.PI * radius;
@@ -18,7 +18,7 @@ const CircularProgressBar = ({ percentage }) => {
   }, [percentage])
 
   return (
-    <div className="relative flex items-center justify-center w-[95px] h-[95px]">
+    <div className={`relative flex items-center justify-center ${width ? width:'w-[95px]'} ${height ? height: 'h-[95px]'}`}>
       <svg
         className="transform rotate-[-90deg]"
         width="100%"
@@ -47,7 +47,7 @@ const CircularProgressBar = ({ percentage }) => {
           cy="60"
         />
       </svg>
-      <span className="absolute text-[18px] font-semibold text-[#000]">{`${percentage}%`}</span>
+      <span className={`absolute ${percentageSize ? percentageSize:'text-[18px]'} font-semibold text-[#000]`}>{`${percentage}%`}</span>
     </div>
   );
 };

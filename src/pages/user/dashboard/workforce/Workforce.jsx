@@ -6,14 +6,16 @@ import DonutChart from '../../../../components/charts/donutChart/DonutChart'
 import WorkforceTotal from '../../../../components/shared/workforce/WorkforceTotal'
 import PieChartComponent from '../../../../components/charts/pieChart/PieChartComponent'
 
+const barColors = {start: '#1497a6', end: '#14a68b99'}
+
 const Workforce = () => {
   return (
     <>
-      <div className='grid lg:grid-cols-12 gap-4 md:gap-6 xl:gap-8'>
+      <div className='grid lg:grid-cols-12 gap-4 md:gap-6'>
         <div className="lg:col-span-8">
-          <div className="bg-white p-4 lg:p-6 xl:p-8 rounded-[12px] drop-shadow-md">
+          <div className="bg-white p-4 lg:p-6 rounded-[12px] drop-shadow-md">
             <Title title='Workforces' />
-            <BarChartComponent data={barLineData} />
+            <BarChartComponent data={barLineData} colors={barColors} barSize={30} />
           </div>
         </div>
         <div className="lg:col-span-4">

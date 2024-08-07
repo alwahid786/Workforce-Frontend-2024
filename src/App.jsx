@@ -37,6 +37,9 @@ const Plans = lazy(() => import("./pages/user/plansAndPricing/Plans"));
 const Transactions = lazy(() =>
   import("./pages/user/plansAndPricing/Transactions")
 );
+const AddProject = lazy(() =>
+  import("./pages/user/projects/AddProject")
+);
 const UpdateProfile = lazy(() => import("./pages/user/settings/UpdateProfile"));
 
 function App() {
@@ -68,6 +71,7 @@ function App() {
             <Route path="transactions" element={<Transactions />} />
             <Route path="update-profile" element={<UpdateProfile />} />
             <Route path="Sos" element={<Sos />} />
+            <Route path="add-project" element={<AddProject />} />
           </Route>
         </Routes>
       </Suspense>

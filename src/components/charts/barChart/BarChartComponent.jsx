@@ -11,42 +11,40 @@ import {
   LabelList,
 } from "recharts";
 
-const BarChartComponent = ({data, colors}) => {
+const BarChartComponent = ({ data, colors, barSize, gradientID }) => {
+  console.log("gradientID:", gradientID);
   return (
     <ResponsiveContainer width="100%" height={400}>
       <BarChart
-        width={1500}
-        height={400}
+        // width={1500}
+        // height={400}
         data={data}
         margin={{
-          top: 20,
-          right: 30,
-          left: 20,
-          bottom: 5,
+          top: 30,
+          right: 0,
+          left: -20,
+          bottom: 0,
         }}
       >
         <defs>
-          {colors? (
-            colors.map((color, index) => (
-              <linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0" key={index}>
-              <stop offset="0%" stopColor={color.start} />
-              <stop offset="100%" stopColor={color.end} />
-            </linearGradient>
-            ))
-          ) : (
-            <linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#06325B" />
-              <stop offset="100%" stopColor="#0C6AC1" />
-            </linearGradient>
-          )}
+          <linearGradient
+            id={gradientID ? gradientID : "colorUv"}
+            x1="1"
+            y1="1"
+            x2="1"
+            y2="0"
+          >
+            <stop offset="0%" stopColor={colors ? colors.start : "#0d59a1"} />
+            <stop offset="100%" stopColor={colors ? colors.end : "#0f88f799"} />
+          </linearGradient>
         </defs>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
+        <XAxis dataKey="name" tick={{ fontSize: "12px" }} />
+        <YAxis tick={{ fontSize: "12px" }} />
         <Tooltip />
         <Legend />
-        <Bar dataKey="uv" fill="url(#colorUv)">
-          <LabelList dataKey='uv' position='top' />
+        <Bar dataKey="uv" fill={`url(#${gradientID ? gradientID : 'colorUv'})`} barSize={barSize ? barSize : 40}>
+          <LabelList dataKey="uv" position="top" style={{ fontSize: "10px" }} />
         </Bar>
       </BarChart>
     </ResponsiveContainer>

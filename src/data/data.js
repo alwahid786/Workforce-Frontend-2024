@@ -145,6 +145,14 @@ export const nfcTagsTypeData = [
   },
   { name: "Unassigned", value: 70, color: "rgba(255, 173, 51, 1)" },
 ];
+export const sosStatusData = [
+  {
+    name: "Un-Knowledge Events",
+    value: 70,
+    color: "rgba(52, 112, 120, 1)",
+  },
+  { name: "SOS Commented", value: 30, color: "rgba(117, 187, 200, 1)" },
+];
 export const activeNfcTagsTypeData = [
   {
     name: "Workforces",
@@ -266,3 +274,34 @@ export const workforcesZone = [
   { name: "Zone C", value: 25, color: "rgba(49, 56, 115, 1)" },
   { name: "Zone D", value: 35, color: "rgba(66, 140, 142, 1)" },
 ];
+
+export const projectLabours = [
+  {
+    name: 'Hamza',
+    image: profileImg
+  },
+  {
+    name: 'Hamza',
+    image: profileImg
+  },
+  {
+    name: 'Hamza',
+    image: profileImg
+  },
+  {
+    name: 'Hamza',
+    image: profileImg
+  },
+  {
+    name: 'Hamza',
+    image: profileImg
+  },
+  {
+    name: 'Hamza',
+    image: profileImg
+  },
+  {
+    name: 'Hamza',
+    image: profileImg
+  },
+]

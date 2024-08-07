@@ -55,7 +55,7 @@ const Home = () => {
       </div>
       <Title title='Todays Tasks' />
       <div className="grid md:grid-cols-2 gap-4 md:gap-6 my-4 md:my-[40px]">
-        <div className="bg-white rounded-[12px] p-4 lg:p-6 xl:p-8 h-[450px] xl:h-[600px] overflow-y-scroll no-scrollbar drop-shadow-xl">
+        <div className="bg-white rounded-[12px] p-4 lg:p-6 h-[450px] xl:h-[600px] overflow-y-scroll no-scrollbar drop-shadow-xl">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-base text-[rgba(0, 0, 0, 0.6)] font-semibold">
               All Projects
@@ -73,7 +73,7 @@ const Home = () => {
             />
           ))}
         </div>
-        <div className="bg-white rounded-[12px] p-4 lg:p-6 xl:p-8 drop-shadow-xl">
+        <div className="bg-white rounded-[12px] p-4 lg:p-6 drop-shadow-xl">
           <h3 className="text-[#000] text-lg md:text-[24px] font-semibold">
             Vehicles
           </h3>
@@ -90,7 +90,7 @@ const Home = () => {
       {/* map section */}
       <div className="grid md:grid-cols-12 gap-4 my-4 md:my-[40px] bg-white p-4 md:p-6 rounded-[12px] drop-shadow-xl">
         <div className="col-span-12 md:col-span-9 drop-shadow-md rounded-lg">
-          <MapComponent position={[51.505, -0.09]} />
+          <MapComponent position={[29.2985, 42.5510]} />
         </div>
         <div className="col-span-12 md:col-span-3 drop-shadow-md">
           <MapSensorsData />

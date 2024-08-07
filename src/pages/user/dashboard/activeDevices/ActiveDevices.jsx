@@ -15,7 +15,7 @@ const ActiveDevices = () => {
   return (
     <>
       <div className="h-4"></div>
-      <div className="bg-white p-4 lg:p-6 xl:p-8 rounded-[12px]">
+      <div className="bg-white p-4 lg:p-6 rounded-[12px]">
         <Title title="Active Devices" />
         <div className="mt-4">
           <BarChartComponent data={barLineData} />
