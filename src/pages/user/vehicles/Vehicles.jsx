@@ -133,7 +133,7 @@ const Vehicles = () => {
     <div className="bg-white rounded-[15px] p-4 lg:p-6 h-[calc(100vh-80px)] overflow-hidden">
       <div className="flex items-center justify-between">
         <div>
-          <Title title="Projects" />
+          <Title title="Vehicles" />
         </div>
         <div className="flex items-center gap-2">
           <div className="cursor-pointer">
